@@ -44,7 +44,7 @@ class CustomClient extends \GuzzleHttp\Client
         $uri = $this->buildUri($uri, $options);
 
         $this->logger->info(sprintf('Created request: %s %s', strtoupper($method), $uri));
-        if (count($headers) > 0 || strlen($body) > 0) {
+        if (count($headers) > 0 || ($body !== null && strlen($body) > 0)) {
             $this->logger->debug('Request headers + body', ['headers' => $headers, 'body' => $body]);
         }
 
